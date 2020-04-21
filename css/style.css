@@ -17,7 +17,7 @@ header{
 	display: block;
 	position: fixed;
 	transition: .2s;
-	background-color: aqua;
+	padding: 5px;
 }
 
 .inner_header{
@@ -25,7 +25,6 @@ header{
 	height: 100%;
 	display: block;
 	float: right;
-	background-color: red;
 }
 
 .logo_container{
@@ -43,6 +42,7 @@ header{
 
 .logo_container img{
 	height: 110px;
+	vertical-align: middle;
 	padding-right: 10px;
 }
 
