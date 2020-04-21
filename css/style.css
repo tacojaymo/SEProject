@@ -5,18 +5,27 @@
 	text-decoration: none;
 }
 
+body{
+	background-image: url(file:///D:/OneDrive/School/Software%20Engineering/SEProject/images/background_1.png);
+	background-repeat: no-repeat;
+	background-position: right top;
+}
+
 header{
 	width: 100%;
-	height: 80px;
+	height: auto;
 	display: block;
-	background-color: #101010;
+	position: fixed;
+	transition: .2s;
+	background-color: aqua;
 }
 
 .inner_header{
-	width: 1000px;
+	width: auto;
 	height: 100%;
 	display: block;
 	float: right;
+	background-color: red;
 }
 
 .logo_container{
@@ -26,11 +35,19 @@ header{
 	padding: 0px 5px;
 }
 
-.logo_container h1{
-	color: white;
+.logo_container a{
 	height: 100%;
 	display: table-cell;
 	vertical-align: middle;
+}
+
+.logo_container img{
+	height: 110px;
+	padding-right: 10px;
+}
+
+.logo_container h1{
+	color: #101010;
 	font-family: 'Stencil';
 	font-size: 32px;
 	font-weight: 200;
@@ -46,14 +63,15 @@ header{
 }
 
 .nav a{
-	height: 100%;
+	height: auto;
 	display: table;
 	float: left;
-	padding: 0px 20px;
+	padding-top: 35px;
+	padding-right: 75px;
 }
 
 .nav a:last-child{
-	padding-right: 0;
+	padding-right: 175px;
 }
 
 .nav a li{
@@ -62,4 +80,40 @@ header{
 	height: 100%;
 	color: white;
 	font-family: 'Segoe UI';
+	font-weight: bold;
+	cursor: pointer;
+	padding: 8px 25px;
+	border-radius: 18px;
+	transition: .2s;
+}
+
+.nav a li:hover{
+	background-color: #F8A22F;
+}
+
+/* main style */
+main{
+	color: darkgray;
+	height: 100%;
+	font-family: Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", "serif";
+	padding-top: 80px;
+	padding-left: 40px;
+	height: 4000px;
+}
+
+main h1{
+	color: #101010;
+	width: 520px;
+	font-size: 71px;
+	font-weight: 100;
+	padding-bottom: 20px;
+}
+
+main h1 span{
+	color: #F8A22F;
+}
+
+main p{
+	font-size: 26px;
+	width: 710px;
 }

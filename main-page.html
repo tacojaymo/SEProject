@@ -7,23 +7,24 @@
 </head>
 
 <body>
-<header>
+<header id="nav">
 	<div class="logo_container">
-		<h1>EINSTEIN BROS <span>TO-GO</span></h1>
+		<a href="#"><img src="images/logo.png"></a>
+		<a href="#"><h1>EINSTEIN BROS <span>TO-GO</span></h1></a>
 	</div>
 	<div class="inner_header">
 		<ul class="nav">
-			<a href="#" title="Home Page"><li>Home</li></a>
 			<a href="about.html" title="About Page"><li>About</li></a>
 			<a href="menu.html" title="View Menu"><li>Menu</li></a>
 			<a href="orders.html" title="View Orders"><li>Orders</li></a>
-			<a href="contact.html" title="Contact Us"><li>Contact</li></a>
+			<a href="contact.html" title="Contact Us"><li>Contact Us</li></a>
 		</ul>
 	</div>
 </header>
 
 <main>
-	
+	<h1><br />Have no time <br />to prepare <span>food</span>?</h1>
+	<p>Choose one of our bagels, enter the proposed pick-up time and enjoy delicious food without leaving your home!</p>
 </main>
 
 <aside>
@@ -35,3 +36,24 @@
 </footer>
 </body>
 </html>
+
+
+<!-- script for fading header -->
+<script type="text/javascript">
+	var nav = document.getElementById('nav');
+	window.onscroll = function(){
+		if (window.pageYOffset > 50 && window.pageYOffset < 100) {
+			nav.style.opacity = 0.5;
+			nav.style.background = "#C98932";
+		}
+		else if (window.pageYOffset > 100) {
+			nav.style.opacity = 0.97;
+			nav.style.background = "#C98932";
+		}
+		else{
+			nav.style.opacity = 1;
+			nav.style.background = "transparent";
+			nav.style.boxShadow = "none";
+		}
+	}
+</script>
