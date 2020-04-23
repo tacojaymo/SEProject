@@ -6,9 +6,15 @@
 }
 
 body{
-	background-image: url(file:///D:/OneDrive/School/Software%20Engineering/SEProject/images/background_1.png);
+	background-image: url(../images/background_1.png);
 	background-repeat: no-repeat;
 	background-position: right top;
+}
+
+.menu{
+	background-image: url(../images/background_2.png);
+	background-position: 5% 120px;
+	background-size: 40%;
 }
 
 /* header style */
@@ -70,6 +76,8 @@ header{
 	float: left;
 	padding-top: 28px;
 	padding-right: 75px;
+	line-height: 2.2;
+	color: white;
 }
 
 .nav a:last-child{
@@ -80,17 +88,29 @@ header{
 	display: table-cell;
 	vertical-align: middle;
 	height: 100%;
-	color: white;
 	font-size: 24px;
 	font-family: 'Segoe UI';
 	font-weight: bold;
 	cursor: pointer;
 	padding: 8px 25px;
-	border-radius: 18px;
+	border-radius: 35px;
 	transition: .2s;
 }
 
 .nav a li:hover{
+	background-color: #F8A22F;
+	
+}
+
+.white{
+	color: #AAA;
+}
+
+#orders{
+	background-color: #F8A22F;
+}
+
+#menu{
 	background-color: #F8A22F;
 }
 
@@ -105,13 +125,25 @@ main{
 
 main h1{
 	color: #101010;
-	width: 520px;
+	width: 600px;
 	font-size: 71px;
 	font-weight: 100;
 	padding-bottom: 20px;
 }
 
 main h1 span{
+	color: #F8A22F;
+}
+
+main h2{
+	color: #101010;
+	width: 600px;
+	font-size: 35px;
+	font-weight: 100;
+	padding-bottom: 20px;
+}
+
+main h2 span{
 	color: #F8A22F;
 }
 
@@ -132,7 +164,7 @@ main p{
 	font-size: 20px;
 }
 
-.landing button {
+.landing button{
 	color: white;
 	font-size: 22px;
 	font-family: 'Segoe UI';
@@ -140,7 +172,62 @@ main p{
 	padding: 8px 25px;
 	border-radius: 18px;
 	background-color: #F8A22F;
-	text-decoration: none;
+}
+
+.login{
+	margin-top: 100px;
+}
+
+.login p{
+	font-size: 12px;
+	font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
+	color: #F8A22F;
+	width: 180px;
+	text-align: right;
+	padding-bottom: 0px;
+	padding-right: 10px;
+}
+
+.login input{
+	height: 35px;
+	width: 250px;
+	border: none;
+	border-bottom: 1px solid #AAA;
+}
+
+#loginbutton button{
+	color: white;
+	font-size: 22px;
+	font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
+	width: 100%;
+	cursor: pointer;
+	padding: 8px 25px;
+	border-radius: 18px;
+	background-color: #F8A22F;
+}
+
+#loginbutton{
+	width: auto;
+	padding-top: 40px;
+	padding-bottom: 400px;
+}
+
+.menuselect{
+	padding-left: 50%;
+	padding-bottom: 10%;
+}
+.menuselect button{
+	color: white;
+	font-size: 22px;
+	font-family: 'Segoe UI';
+	cursor: pointer;
+	padding: 8px 25px;
+	border-radius: 18px;
+	background-color: #F8A22F;
+}
+
+.innermenu tr td{
+	width: 150px;
 }
 
 /* footer style */

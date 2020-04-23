@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<title>Menu Page</title>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body class="menu">
+<header id="nav">
+	<div class="logo_container">
+		<a href="index.html"><img src="images/logo.png" alt="Logo"></a>
+		<a href="index.html"><h1>EINSTEIN BROS <span>TO-GO</span></h1></a>
+	</div>
+	<div class="inner_header">
+		<ul class="nav">
+			<a href="about.html" title="About Page"><li class="white">About</li></a>
+			<a href="#" title="View Menu"><li class="white" id="menu">Menu</li></a>
+			<a href="orders.html" title="View Orders"><li class="white">Orders</li></a>
+			<a href="contact.html" title="Contact Us"><li class="white">Contact Us</li></a>
+		</ul>
+	</div>
+</header>
+
+<main class="menuselect">
+	<h1>Menu</h1>
+	<table class="menulist">
+		<tr><td><h3>Signature Bagels</h3><h5>Choose any of our signature bagels</h5></td></tr>
+		<tr><td>
+			<table class="innermenu">
+				<tr>
+					<td>Farm House</td>
+					<td>Turkey Sausage & Cheddar</td>
+					<td>Chorizo Sunrise</td>
+					<td>Nova Lox</td>
+					<td>Pizza Bagel Pepperoni</td>
+					<td>Turkey & Cheddar</td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" id="farmhouse"></td>
+					<td><input type="checkbox" id="turkeysausage"></td>
+					<td><input type="checkbox" id="chorizo"></td>
+					<td><input type="checkbox" id="novalox"></td>
+					<td><input type="checkbox" id="pizzapepperoni"></td>
+					<td><input type="checkbox" id="turkeycheddar"></td>
+				</tr>
+			</table>
+		</td></tr>
+		<tr><td><h3>Bagels & Shmear</h3><h5>Choose any of our regular bagels</h5></td></tr>
+		<tr><td>
+			<table class="innermenu">
+				<tr>
+					<td>Everything</td>
+					<td>Cinnamon Sugar</td>
+					<td>Plain</td>
+					<td>Garlic Herb</td>
+					<td>Strawberry</td>
+					<td>Plain</td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" id="evrything"></td>
+					<td><input type="checkbox" id="cinnamon"></td>
+					<td><input type="checkbox" id="plain"></td>
+					<td><input type="checkbox" id="garlic"></td>
+					<td><input type="checkbox" id="strawberry"></td>
+					<td><input type="checkbox" id="plainshmear"></td>
+				</tr>
+			</table>
+		</td></tr>
+		<tr><td><h3>Sweets & Beverages</h3><h5>Choose any of our delicious sweet treats</h5></td></tr>
+		<tr><td>
+			<table class="innermenu">
+				<tr>
+					<td>Caramel Coffee Cooler</td>
+					<td>Iced Tea</td>
+					<td>Hot Chocolate</td>
+					<td>Cinnamon Twist</td>
+					<td>Cinnamon Chip Muffin</td>
+					<td>Chocolate Chip Coffee Cake</td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" id="caramelcoffee"></td>
+					<td><input type="checkbox" id="icedtea"></td>
+					<td><input type="checkbox" id="hotchocolate"></td>
+					<td><input type="checkbox" id="cinnamontwist"></td>
+					<td><input type="checkbox" id="cinnamonmuffin"></td>
+					<td><input type="checkbox" id="chocolatecake"></td>
+				</tr>
+			</table>
+		</td></tr>
+	</table>
+	
+	<button type="submit">Submit</button>
+</main>
+
+<aside>
+</aside>
+
+<footer>
+	<div class="name_container">
+		<h1>EINSTEIN BROS <span>TO-GO</span></h1>
+	</div>
+	<div class="inner_footer">
+		<ul class="footer">
+			<li style="font-weight: bold">Contact</li>
+			<li>4700 Research Way</li>
+			<li>Lakeland, Florida, USA</li>
+			<li>Telephone: +1 863-455-5555</li>
+			<li>E-Mail: reinsteinstogo@live.com</li>
+		</ul>
+		<ul class="footer">
+			<li style="font-weight: bold">Follow Us</li>
+			<li>
+				<table>
+					<tr>
+						<td><a href="#"><img src="images/facebook.png" alt="Facebook"></a></td>
+						<td><a href="#"><img src="images/twitter.png" alt="Twitter"></a></td>
+						<td><a href="#"><img src="images/insta.png" alt="Instagram"></a></td>
+					</tr>
+				</table>
+			</li>
+		</ul>
+	</div>
+	<div class="rectangle"></div>
+	<p class="copyright">&copy All Rights Reserved</p>
+</footer>
+</body>
+</html>
+
+
+<!-- script for fading header -->
+<script type="text/javascript">
+	var nav = document.getElementById('nav');
+	window.onscroll = function(){
+		if (window.pageYOffset > 50 && window.pageYOffset < 100) {
+			nav.style.opacity = 0.5;
+			nav.style.background = "#C98932";
+		}
+		else if (window.pageYOffset > 100) {
+			nav.style.opacity = 0.97;
+			nav.style.background = "#C98932";
+		}
+		else{
+			nav.style.opacity = 1;
+			nav.style.background = "transparent";
+			nav.style.boxShadow = "none";
+		}
+	}
+</script>

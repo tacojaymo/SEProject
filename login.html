@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<title>Login Page</title>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body>
+<header id="nav">
+	<div class="logo_container">
+		<a href="index.html"><img src="images/logo.png" alt="Logo"></a>
+		<a href="index.html"><h1>EINSTEIN BROS <span>TO-GO</span></h1></a>
+	</div>
+	<div class="inner_header">
+		<ul class="nav">
+			<a href="about.html" title="About Page"><li>About</li></a>
+			<a href="menu.html" title="View Menu"><li>Menu</li></a>
+			<a href="orders.html" title="View Orders"><li>Orders</li></a>
+			<a href="contact.html" title="Contact Us"><li>Contact Us</li></a>
+		</ul>
+	</div>
+</header>
+
+<main>
+	<h2><br />Log into your account <br /><span>to begin ordering food!</span></h2>
+	<div class="login">
+		<table>
+			<tr><td><p>E-Mail</p></td><td><input type="text" name="username"></td></tr>
+			<tr><td><p>Password</p></td><td><input type="password" name="password"></td></tr>
+			<tr><td></td><td id="loginbutton"><button type="submit">Log In</button></td></tr>
+		</table>
+		
+	</div>
+</main>
+
+<aside>
+</aside>
+
+<footer>
+	<div class="name_container">
+		<h1>EINSTEIN BROS <span>TO-GO</span></h1>
+	</div>
+	<div class="inner_footer">
+		<ul class="footer">
+			<li style="font-weight: bold">Contact</li>
+			<li>4700 Research Way</li>
+			<li>Lakeland, Florida, USA</li>
+			<li>Telephone: +1 863-455-5555</li>
+			<li>E-Mail: reinsteinstogo@live.com</li>
+		</ul>
+		<ul class="footer">
+			<li style="font-weight: bold">Follow Us</li>
+			<li>
+				<table>
+					<tr>
+						<td><a href="#"><img src="images/facebook.png" alt="Facebook"></a></td>
+						<td><a href="#"><img src="images/twitter.png" alt="Twitter"></a></td>
+						<td><a href="#"><img src="images/insta.png" alt="Instagram"></a></td>
+					</tr>
+				</table>
+			</li>
+		</ul>
+	</div>
+	<div class="rectangle"></div>
+	<p class="copyright">&copy All Rights Reserved</p>
+</footer>
+</body>
+</html>
+
+
+<!-- script for fading header -->
+<script type="text/javascript">
+	var nav = document.getElementById('nav');
+	window.onscroll = function(){
+		if (window.pageYOffset > 50 && window.pageYOffset < 100) {
+			nav.style.opacity = 0.5;
+			nav.style.background = "#C98932";
+		}
+		else if (window.pageYOffset > 100) {
+			nav.style.opacity = 0.97;
+			nav.style.background = "#C98932";
+		}
+		else{
+			nav.style.opacity = 1;
+			nav.style.background = "transparent";
+			nav.style.boxShadow = "none";
+		}
+	}
+</script>
