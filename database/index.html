@@ -1,0 +1,233 @@
+
+<!doctype html>
+<html>
+
+<head>
+
+    <title>EinsteinBagelsToGo</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="lib/axios/dist/axios.standalone.js"></script>
+    <script type="text/javascript" src="lib/CryptoJS/rollups/hmac-sha256.js"></script>
+    <script type="text/javascript" src="lib/CryptoJS/rollups/sha256.js"></script>
+    <script type="text/javascript" src="lib/CryptoJS/components/hmac.js"></script>
+    <script type="text/javascript" src="lib/CryptoJS/components/enc-base64.js"></script>
+    <script type="text/javascript" src="lib/url-template/url-template.js"></script>
+    <script type="text/javascript" src="lib/apiGatewayCore/sigV4Client.js"></script>
+    <script type="text/javascript" src="lib/apiGatewayCore/apiGatewayClient.js"></script>
+    <script type="text/javascript" src="lib/apiGatewayCore/simpleHttpClient.js"></script>
+    <script type="text/javascript" src="lib/apiGatewayCore/utils.js"></script>
+    <script type="text/javascript" src="apigClient.js"></script>
+
+
+</head>
+
+<body>
+	<container>
+    <div class="jumbotron text-center">
+        <img src="https://pbs.twimg.com/profile_images/914968694299672576/COSjCqUh_400x400.jpg" alt="logo" style="width:300px;height:300px;">
+        
+        
+		<div class="container">
+            <div class="row">
+                <h3 style="text-align: center;">Menu</h3>
+
+                <form name="Order">
+                    <p><input name="Plain" type="radio" />Plain - $2&nbsp; &nbsp; &nbsp;
+                        <input name="Creamcheese" type="radio" />Creamcheese -$4</p>
+
+                    <p><input name="Salad" type="radio" />Salad - $4&nbsp; &nbsp; &nbsp;
+                        <input name="Drink" type="radio" />Drink - $2</p>
+				</form>
+                    <br>
+            </div>
+            <div class="row">
+                <h3 style="text-align: center;">Select Pickup or Delivery.....</h3>
+
+                <p><input name="PickupOrDeliverySelection" type="radio" value="Pickup" />Pickup &nbsp; &nbsp; &nbsp; &nbsp;
+                    &nbsp; &nbsp;
+                    <input name="PickupOrDeliverySelection" type="radio" value="Delivery" />Delivery
+                </p>
+
+
+                <br>
+            </div>
+            <div class="row">
+                <h3 style="text-align: center;">Select Payment Type.....</h3>
+
+                <input name="PaymentTypeSelection" type="radio" value="CreditCard" />Credit Card &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<input name="PaymentTypeSelection"
+                    type="radio" value="PayPal" />PayPal
+            </div>
+            <div class="row">
+                <div name="PaymentDetailsCC" style="display:none">
+                    <p>Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input name="CreditCardName" type="text" /> Card Number&nbsp;&nbsp;
+                        <input name="CreditCardNumber" type="text" /></p>
+                    <p>Zip Code&nbsp;<input name="ZipCode" type="text" /> Security Code&nbsp;<input name="SecurityCode" type="text"/></p>
+
+                </div>
+            </div>
+
+
+            <p>&nbsp;</p>
+			<form>
+            <div class="row">
+                <h1><p style="text-align: center;"><input type="submit" value="Order Online" />
+                    <center>
+                        <div id="results" name="results"></div>
+                    </center>
+                </p></h1>
+
+            </div>
+
+            </form>
+
+        </div>
+		 </div>
+        </container>
+</body>
+
+</html>
+
+<script>
+
+    $(document).ready(function () {
+
+
+    //show/hide Payment Details
+    $('input[value=CreditCard]').change(function () {
+        $('div[name=PaymentDetailsCC]').show();
+    });
+
+    $('input[value=PayPal]').change(function () {
+
+        $('div[name=PaymentDetailsCC]').hide();
+    });
+
+    
+
+
+    const data  = {
+  orderid: "1234567",
+  customerid: "cus_9",
+  ordertype: "pickup",
+  ordertotal: 14,
+  orderitem1: "Pizza",
+  orderitem2: " ",
+  orderitem3: "Salad",
+  orderitem4: " ",
+  paymenttype: "CreditCard",
+  cardnumber: "1111111111111111",
+  cardname: "Tina Fey",
+  zipcode: "678",
+  securitycode: "123"
+};
+   /* 
+
+$('form').submit(function (event) {
+            //get the form data
+
+            var orderId = Math.floor((Math.random() * 10) + 1);
+            var customerId = "cus_" + orderId;
+            var orderType = $('input[name=PickupOrDeliverySelection]:checked').val();
+
+            var order = [
+                orderItem1 = {
+                    'item': ($('input[name=Plain]:checked').val() === 'on') ? 'Plain' : ' ',
+                    'price': '2'
+                },
+                orderItem2 = {
+                    'item': ($('input[name=Creamcheese]:checked').val() === 'on') ? 'Creamcheese' : ' ',
+                    'price': '4'
+                },
+                orderItem3 = {
+                    'item': ($('input[name=Salad]:checked').val() === 'on') ? 'Salad' : ' ',
+                    'price': '4'
+                },
+                orderItem4 = {
+                    'item': ($('input[name=Drink]:checked').val() === 'on') ? 'Drink' : ' ',
+                    'price': '2'
+                }
+            ]
+
+            var orderTotal = getOrderTotal(order);
+
+            function getOrderTotal(order) {
+                var total = 0;
+                for (var i = 0; i < order.length; i++) {
+                    var obj = order[i];
+                    if (obj.item != ' ') {
+                        total = total + parseFloat(obj.price);
+                    }
+                }
+                return total;
+            };
+
+            //var paymentType = ($('input[name=PaymentTypeSelection]:checked').val() === 'on') ? 'CreditCard' : 'PayPal';
+            var paymentType = $('input[name=PaymentTypeSelection]:checked').val();
+            var cardNumber = $('input[name=CreditCardNumber]').val();
+            var cardName = $('input[name=CreditCardName]').val();
+            var securityCode = $('input[name=SecurityCode]').val();
+            var zipCode = $('input[name=ZipCode]').val();
+
+
+
+               console.log("orderid= " + orderId);
+               console.log("customerId = " + customerId);
+               console.log("orderType = " + orderType);
+               console.log("order = " + JSON.stringify(order));
+               console.log("payment Type =" + paymentType);
+               console.log("card number=" + cardNumber);
+               console.log("card name =" + cardName);
+               console.log("security code= " + securityCode);
+               console.log("zipcode= " + zipCode);
+               console.log("order total = " + orderTotal);
+
+            data = {
+                
+                orderid: orderId,
+                customerid: customerId,
+                ordertype: orderType,
+                ordertotal: orderTotal,
+                orderitem1: order[0].item,
+                orderitem2: order[1].item,
+                orderitem3: order[2].item,
+                orderitem4: order[3].item,
+                paymenttype: paymentType,
+                cardnumber: cardNumber,
+                cardname: cardName,
+                zipcode: zipCode,
+                securitycode: securityCode
+            }
+    */
+    console.log("data = " + JSON.stringify(data));
+    
+    
+
+    
+    
+    fetch('https://iik28yepjk.execute-api.us-east-1.amazonaws.com/prod/order/{orderkey}', {
+    method: 'POST', // or 'PUT',
+    headers: {
+       
+        'Content-Type': 'application/json'
+       
+    },
+    body: JSON.stringify(data),
+    })
+    .then((response) => response.json())
+    .then((data) => {
+        
+         console.log('Success:', data);
+    })
+    .catch((error) => {
+    console.error('Error:', error);
+    });
+    return false; 
+    });
+   
+</script>
